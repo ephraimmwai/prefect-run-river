@@ -4,11 +4,11 @@ from prefect import flow, task, get_run_logger
 from prefect.filesystems import GitHub
 from prefect.blocks.system import JSON,Secret
 
-
 json_block = JSON.load("payload")
 github_block = GitHub.load("github-rivery")
 secret_block = Secret.load("api-token")
-access_token =secret_block.get()
+
+access_token =secret_block.value.get_secret_value()
 
 payload = json_r.dumps(json_block.value)
 
@@ -27,7 +27,10 @@ def call_river_api(url):
 # def display_it():
 #     json_block = JSON.load("payload")
 #     logger=get_run_logger()
-#     logger.info(str(headers))
+#     logger.info(access_token)
+
+
+
 
 @flow(name="run_river")
 def run_river(url):

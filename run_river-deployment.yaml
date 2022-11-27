@@ -3,16 +3,23 @@
 ###
 name: run_river_deployment
 description: null
-version: a1037dc17180f649b8a5d844aa5b3c7e
+version: 99bdeed78f72a08d77ca02b0071ff132
 # The work queue that will handle this deployment's runs
 work_queue_name: rivery_q
 tags: []
-parameters: {"url": "https://console.rivery.io/api/run"}
+parameters:
+  url: https://console.rivery.io/api/run
 schedule:
-  cron: 50 * * * *
+  cron: 0 0 * * 1
   timezone: null
   day_or: true
 infra_overrides: {}
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: run_river
+manifest_path: null
 infrastructure:
   type: process
   env: {}
@@ -21,16 +28,21 @@ infrastructure:
   command: null
   stream_output: true
   working_dir: null
+  _block_document_id: 003de98d-20f7-4094-bdf0-2ff49f09ead9
+  _block_document_name: anonymous-76b9f188-37cd-4787-b87f-946623732b1e
+  _is_anonymous: true
   block_type_slug: process
   _block_type_slug: process
-
-###
-### DO NOT EDIT BELOW THIS LINE
-###
-flow_name: run_river
-manifest_path: null
-storage: null
-path: /Users/eph/Desktop/prefect
+storage:
+  repository: https://github.com/ephraimmwai/prefect_app_01.git
+  reference: null
+  access_token: null
+  _block_document_id: 0d1126d1-104c-4cbd-a0d8-9fb9f28b4573
+  _block_document_name: github-rivery
+  _is_anonymous: false
+  block_type_slug: github
+  _block_type_slug: github
+path: ''
 entrypoint: run_river.py:run_river
 parameter_openapi_schema:
   title: Parameters
