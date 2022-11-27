@@ -10,7 +10,7 @@ tags: []
 parameters:
   url: https://console.rivery.io/api/run
 schedule:
-  cron: 0 0 * * 1
+  cron: */10 * * * *
   timezone: null
   day_or: true
 infra_overrides: {}
